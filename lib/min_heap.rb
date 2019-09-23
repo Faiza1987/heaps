@@ -67,12 +67,13 @@ class MinHeap
   def heap_up(index)
     parent_index = (index - 1) / 2
 
-    if @store[parent_index].key > @store[index].key && parent_index >= 0
-      swap(parent_index, index)
-      heap_up(parent_index)
-    else
-      return
+    if parent_index >= 0
+      if @store[parent_index].key > @store[index].key
+        swap(parent_index, index)
+        heap_up(parent_index)
+      end
     end
+    return
   end
 
   # This helper method takes an index and
